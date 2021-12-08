@@ -14,6 +14,12 @@ class Users extends Component {
     };
   }
 
+  componentDidUpdate() {
+    if (this.props.users.length === 0) {
+      throw new Error('No users provided!'); // 拋出錯誤
+    }
+  }
+
   toggleUsersHandler() {
     // this.state.showUsers = false; // NOT!
     // 這個 setState 是 Class Component 提供的方法，會合併 state Object
